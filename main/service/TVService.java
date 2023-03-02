@@ -1,6 +1,5 @@
 package service;
 
-import model.Central;
 import model.Channel;
 import model.TV;
 import repository.TVRepository;
@@ -38,8 +37,24 @@ public class TVService {
             System.out.println("Te rog sa alegi postul pe care vrei sa te uiti");
             System.out.print("Postul pe care l-ai selectat este ");
             tv.setChannelPost(readOptionTV());
-            tv.setChannelName(tvr.findByChannelPost(tv.getChannelPost()).toString());
+            tv.setChannelName(tvr.findByChannelPost(tv.getChannelPost()));
             tvr.updateTV(tv);
+        }
+    }
+    public void whatIsPower() throws SQLException {
+        TV tv =tvr.findById(3);
+        if(tv.isPower()){
+            System.out.println("Televizorul este pornit");
+        } else {
+            System.out.println("Televizorul este oprit");
+        }
+    }
+    public void whatChannelIs() throws SQLException {
+        TV tv = tvr.findById(3);
+        if(tv.isPower()) {
+            System.out.println("Televizorul este deschis pe canalul " + tv.getChannelName());
+        } else {
+            System.out.println("Televizorul este momentan oprit");
         }
     }
 

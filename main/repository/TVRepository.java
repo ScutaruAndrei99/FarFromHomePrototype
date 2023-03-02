@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TVRepository {
     private Connection connection;
@@ -37,31 +39,32 @@ public class TVRepository {
         }
         return tv;
     }
-    public model.Channel findByChannelPost(int channelPost) throws SQLException {
+    public String findByChannelPost(int channelPost) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT ChannelName1 FROM channel WHERE ChannelPost1 = ?");
         statement.setInt(1,channelPost);
         ResultSet rs = statement.executeQuery();
-
-        Channel channel = null;
-        if(rs.next()) {
-            channel = new Channel(
-            rs.getInt("ChannelPost1"),
-            rs.getString("ChannelName1")
-            );
+        String c = String.valueOf(0);
+        while(rs.next()){
+            c = rs.getString("ChannelName1").toString();
         }
-//        String a = rs.getString("ChannelName1");
-        return channel;
+        return c;
+    }
+    public List<Channel> findAll() throws SQLException {
+
+
+        List<Channel> result = new ArrayList<>();
+
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM channel");
+        ResultSet rs = statement.executeQuery();
+
+        while(rs.next()){
+            Channel channel=new Channel(
+                    rs.getInt("ChannelPost1"),
+                    rs.getString("ChannelName1")
+            );
+            result.add(channel);
+        }
+        return result;
     }
 
-//    public Channel extractCharFromBaseData(int channelPost) throws SQLException {
-//        PreparedStatement statement = connection.prepareStatement("SELECT ChannelName1 FROM channel WHERE ChannelPost1 = ?");
-//        statement.setInt(1,channelPost);
-//        ResultSet rs = statement.executeQuery();
-//
-//        while (rs.next()) {
-//            a = rs.getString("ChannelName1").charAt(0);
-//            System.out.println("Caracterul extras este: " + a);
-//        }
-//        return a;
-//    }
 }

@@ -5,41 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edfb6f1-5a93-4809-bee0-0e564f9ac00b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/applicances/Curtains.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/applicances/Elevator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/applicances/Gate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/applicances/Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/applicances/TV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/applicances/Vacuum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/interfata/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/interfata/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/model/Central.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/model/Channel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/model/Espressor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/model/TV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/repository/CentralRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/repository/EspressorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/repository/LightRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/repository/TVRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/CentralService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/EspressorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuCentral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuCurtains.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuElevator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuEspressor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuGate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuTV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/MeniuVacuum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/TVService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/applicances/TV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/model/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/model/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/TVRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/TVRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/service/MeniuTV.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/MeniuTV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/service/TVService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/TVService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +27,17 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -188,7 +171,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="FarFromHome" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

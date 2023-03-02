@@ -1,19 +1,17 @@
 package service;
 
-import applicances.TV;
+import model.TV;
 import repository.TVRepository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MeniuTV {
     private static final Scanner scanner=new Scanner(System.in);
 
-    public static TV tv=new TV();
+//    public static TV tv=new TV(3, tv.getChannelPost(),tv.getChannelName(),tv.isPower());
     TVRepository tvr;
     TVService tvs;
 
@@ -38,12 +36,15 @@ public class MeniuTV {
                 tvs.setPowerTV();
                 break;
             case 2:
-                tv.accesTV();
+                tvs.whatIsPower();
                 break;
             case 3:
                 tvs.changeChannel();
                 break;
             case 4:
+                tvs.whatChannelIs();
+                break;
+            case 5:
                 Service menu=new Service();
                 menu.tabStart();
                 break;
@@ -57,7 +58,8 @@ public class MeniuTV {
         System.out.println("1. Vreau sa pornesc/opresc televizorul");
         System.out.println("2. Vreau sa vad cum e televizorul");
         System.out.println("3. Vreau sa mut pe alt canal");
-        System.out.println("4. Inapoi");
+        System.out.println("4. Pe ce Canal este deschis televizorul?");
+        System.out.println("5. Inapoi");
     }
 
 }
