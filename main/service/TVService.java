@@ -58,7 +58,7 @@ public class TVService {
         }
     }
 
-    static int readOptionTV() {
+    public static int readOptionTV() {
         do {
             try {
                 int optiune = scanner.nextInt();

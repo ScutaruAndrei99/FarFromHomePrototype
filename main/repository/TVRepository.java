@@ -16,7 +16,7 @@ public class TVRepository {
     public TVRepository(Connection connection) {this.connection=connection;}
 
     public boolean updateTV(TV tv) throws SQLException {
-        PreparedStatement statement=connection.prepareStatement("UPDATE television SET ChannelPost = ?, ChannelName = ?, Power = ? WHERE idTV =3");
+        PreparedStatement statement = connection.prepareStatement("UPDATE television SET ChannelPost = ?, ChannelName = ?, Power = ? WHERE idTV = 3");
         statement.setInt(1,tv.getChannelPost());
         statement.setString(2,tv.getChannelName());
         statement.setBoolean(3, tv.isPower());

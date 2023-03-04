@@ -45,7 +45,7 @@ public class CentralService {
         Central central = cr.findById(2);
         System.out.println("Temperatura din centrala este de " + central.getTemperature() +" grade Celsius" );
     }
-    static int readOptionCentral() {
+    public static int readOptionCentral() {
         do {
             try {
                 int optiune = scanner.nextInt();

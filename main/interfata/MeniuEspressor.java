@@ -1,6 +1,8 @@
-package service;
+package interfata;
 
 import repository.EspressorRepository;
+import service.EspressorService;
+import service.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -94,9 +96,4 @@ public class MeniuEspressor {
         System.out.println("8. Refill");
         System.out.println("9. Inapoi");
     }
-//
-//    public void propareShortEspresso(){
-//
-//        if(get.ShotCoffe)
-//    }
 }

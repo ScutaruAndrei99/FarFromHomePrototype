@@ -60,7 +60,7 @@ public class MeniuElevator {
         do {
             try {
                 int optiune = scanner.nextInt();
-                if (optiune > 4 || optiune < 1) {
+                if (optiune > 5 || optiune < 1) {
                     System.out.println("Te rog sa alegi alt numar");
                 } else {
                     scanner.nextLine();

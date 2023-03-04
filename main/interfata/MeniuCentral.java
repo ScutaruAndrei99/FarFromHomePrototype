@@ -1,14 +1,15 @@
-package service;
+package interfata;
 
 import repository.CentralRepository;
+import service.CentralService;
+import service.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class MeniuCentral {
-    private static final Scanner scanner = new Scanner(System.in);
+
     CentralRepository cr;
     CentralService cs;
 

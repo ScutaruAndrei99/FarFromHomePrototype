@@ -1,7 +1,9 @@
-package service;
+package interfata;
 
 import model.TV;
 import repository.TVRepository;
+import service.Service;
+import service.TVService;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

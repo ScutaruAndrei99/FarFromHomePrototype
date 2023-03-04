@@ -1,5 +1,7 @@
 package service;
 
+import interfata.*;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -46,8 +48,8 @@ public class Service {
                         centr.TabCentral();
                         break;
                     case 6:
-                        MeniuLight lumina= new MeniuLight();
-                        lumina.TabLight();
+                        MeniuRoom lumina= new MeniuRoom();
+                        lumina.TabRoom();
                         break;
                     case 7:
                         MeniuCurtains draperii=new MeniuCurtains();
