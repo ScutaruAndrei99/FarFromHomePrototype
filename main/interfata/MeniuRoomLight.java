@@ -8,20 +8,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MeniuRoom {
+public class MeniuRoomLight {
     LightRepository lr;
     LightService ls;
 
-    public MeniuRoom() throws ClassNotFoundException, SQLException {
+    public MeniuRoomLight() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
         lr = new LightRepository(conn);
         ls = new LightService(lr);
     }
 
-    public void TabRoom() throws SQLException, ClassNotFoundException {
+    public void TabRoomLight() throws SQLException, ClassNotFoundException {
         while (true){
-            tabelRoom();
+            tabelRoomLight();
             int selectedOptionRoom = ls.readOptionLight();
             processSelectedOptionRoom(selectedOptionRoom);
         }
@@ -61,7 +61,7 @@ public class MeniuRoom {
         }
     }
 
-    private static void tabelRoom() {
+    private static void tabelRoomLight() {
         System.out.println("Where do you want to use the light??");
         System.out.println("----------------------");
         System.out.println("1. Bathroom");

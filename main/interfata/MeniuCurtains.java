@@ -1,16 +1,12 @@
 package interfata;
 
 import repository.CurtainsRepository;
-import repository.LightRepository;
-import service.CentralService;
 import service.CurtainsService;
-import service.LightService;
 import service.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.InputMismatchException;
 
 
 public class MeniuCurtains {

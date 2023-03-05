@@ -12,8 +12,6 @@ import java.util.List;
 
 public class EspressorRepository {
 
-
-
     private Connection connection;
 
     public EspressorRepository(Connection connection) {

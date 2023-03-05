@@ -165,7 +165,7 @@ public class CurtainsService {
         do {
             try {
                 int optiune = scanner.nextInt();
-                if (optiune > 10 || optiune < 1) {
+                if (optiune > 8 || optiune < 1) {
                     System.out.println("Te rog sa alegi un numar din meniu");
                 } else {
                     scanner.nextLine();

@@ -36,9 +36,14 @@ public class TVService {
         } else {
             System.out.println("Te rog sa alegi postul pe care vrei sa te uiti");
             System.out.print("Postul pe care l-ai selectat este ");
-            tv.setChannelPost(readOptionTV());
-            tv.setChannelName(tvr.findByChannelPost(tv.getChannelPost()));
-            tvr.updateTV(tv);
+            int changeChannel = scanner.nextInt();
+            if (changeChannel>82 || changeChannel <1){
+                System.out.println("Televizorul are doar 82 de canale");
+            } else {
+                tv.setChannelPost(readOptionTV());
+                tv.setChannelName(tvr.findByChannelPost(tv.getChannelPost()));
+                tvr.updateTV(tv);
+            }
         }
     }
     public void whatIsPower() throws SQLException {
@@ -62,7 +67,7 @@ public class TVService {
         do {
             try {
                 int optiune = scanner.nextInt();
-                if (optiune > 82 || optiune < 0) {
+                if (optiune > 5 || optiune < 1) {
                     System.out.println("Te rog sa alegi alt numar");
                 } else {
                     scanner.nextLine();

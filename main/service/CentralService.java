@@ -14,15 +14,19 @@ public class CentralService {
 
     public void changeTemperature() throws SQLException {
         Central central = cr.findById(2);
-
         if(!central.isPower()){
             System.out.println("Te rog sa pornesti mai intai centrala");
         }else {
             System.out.println("Te rog sa alegi o temperatura");
             System.out.print("Noua temperatura este " );
-            central.setTemperature(readOptionCentral());
-            System.out.println("Se modifica temperatura");
-            cr.updateCentral(central);
+            int switchTemperature = scanner.nextInt();
+            if(switchTemperature>30||switchTemperature<0){
+                System.out.println("Centrala functioneaza in parametri normali intre 0 si 30 grade");
+            } else {
+                central.setTemperature(switchTemperature);
+                System.out.println("Se modifica temperatura");
+                cr.updateCentral(central);
+            }
         }
     }
     public void setPowerCentral() throws SQLException {
@@ -49,7 +53,7 @@ public class CentralService {
         do {
             try {
                 int optiune = scanner.nextInt();
-                if (optiune > 30 || optiune < 0) {
+                if (optiune > 4 || optiune < 1) {
                     System.out.println("Te rog sa alegi alt numar");
                 } else {
                     scanner.nextLine();

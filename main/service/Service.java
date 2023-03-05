@@ -48,8 +48,8 @@ public class Service {
                         centr.TabCentral();
                         break;
                     case 6:
-                        MeniuRoom lumina= new MeniuRoom();
-                        lumina.TabRoom();
+                        MeniuRoomLight lumina= new MeniuRoomLight();
+                        lumina.TabRoomLight();
                         break;
                     case 7:
                         MeniuCurtains draperii=new MeniuCurtains();

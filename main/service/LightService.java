@@ -181,7 +181,7 @@ public class LightService {
         do {
             try {
                 int optiune = scanner.nextInt();
-                if (optiune > 10 || optiune < 1) {
+                if (optiune > 9 || optiune < 1) {
                     System.out.println("Te rog sa alegi un numar din meniu");
                 } else {
                     scanner.nextLine();

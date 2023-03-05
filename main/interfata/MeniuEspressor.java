@@ -7,12 +7,10 @@ import service.Service;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 public class MeniuEspressor {
 
-    private static final Scanner scanner = new Scanner(System.in);
     EspressorRepository er;
     EspressorService sr;
     public MeniuEspressor() throws ClassNotFoundException, SQLException {
@@ -25,7 +23,7 @@ public class MeniuEspressor {
     public void TabEspressor() throws SQLException, ClassNotFoundException {
         while (true) {
             tabelEspressor();
-            int selectedOptionEspressor = readOptionEspressor();
+            int selectedOptionEspressor = sr.readOptionEspressor();
             processSelectedOptionEspressor(selectedOptionEspressor);
         }
     }
@@ -65,22 +63,7 @@ public class MeniuEspressor {
         }
 
     }
-    private static int readOptionEspressor() {
-        do{
-            try{
-                int optiune=scanner.nextInt();
-                if(optiune>9 || optiune<1){
-                    System.out.println("Te rog sa alegi alt numar");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch (InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune inexistenta, incearca din nou");
-            }
-        } while(true);
-    }
+
 
     protected static void tabelEspressor(){
 

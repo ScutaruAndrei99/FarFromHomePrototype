@@ -1,6 +1,5 @@
 package interfata;
 
-import model.Vacuum;
 import repository.VacuumRepository;
 import service.Service;
 import service.VacuumService;
