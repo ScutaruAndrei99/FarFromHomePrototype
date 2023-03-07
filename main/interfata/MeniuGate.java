@@ -1,17 +1,17 @@
-package service;
+package interfata;
 
-import applicances.Gate;
+import service.GateService;
+import service.Service;
 
-import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MeniuGate {
     private static Scanner scanner=new Scanner(System.in);
+    GateService gs;
 
-    public static Gate poarta=new Gate(3);
-
-    public void TabGate() throws SQLException, ClassNotFoundException {
+    public MeniuGate(){gs= new GateService();}
+    public void TabGate() {
         while (true) {
             tabelGate();
             int selectedOptionGate = readOptionGate();
@@ -23,7 +23,7 @@ public class MeniuGate {
         do {
             try {
                 int optiune = scanner.nextInt();
-                if (optiune > 4 || optiune < 1) {
+                if (optiune > 3 || optiune < 1) {
                     System.out.println("Te rog sa alegi alt numar");
                 } else {
                     scanner.nextLine();
@@ -36,43 +36,28 @@ public class MeniuGate {
         } while (true);
     }
 
-    private void processSelectedOptionGate(int selectedOptionGate) throws SQLException, ClassNotFoundException {
+    private void processSelectedOptionGate(int selectedOptionGate) {
 
         switch (selectedOptionGate){
             case 1:
-                setGateOpen();
+                System.out.println("Scrie 1 pentru a deschide poarta/0 pentru a o inchide");
+                int switchOpen =scanner.nextInt();
+                gs.setGate(switchOpen);
                 break;
             case 2:
-                poarta.setGateClose();
+                gs.gateWork();
                 break;
             case 3:
-                poarta.gateSituation();
-                break;
-            case 4:
                 Service menu=new Service();
                 menu.tabStart();
                 break;
         }
     }
-
-
     private static void tabelGate() {
         System.out.println("Ce vrei sa folosesti?");
         System.out.println("----------------------");
-        System.out.println("1. Deschide poarta");
-        System.out.println("2. Inchide poarta");
-        System.out.println("3. Cat de mult este deschisa poarta ?");
-        System.out.println("4. Inapoi");
+        System.out.println("1. Interactioneaza poarta");
+        System.out.println("2. Status poarta");
+        System.out.println("3. Inapoi");
     }
-
-    public void setGateOpen(){
-        System.out.println("Cat de mult vrei sa deschizi poarta?");
-        int open=scanner.nextInt();
-        if (open > 3 || open < 0){
-            System.out.println("Poarta are maxim 3 metri");
-        } else {
-            poarta.move(open);
-        }
-    }
-
 }

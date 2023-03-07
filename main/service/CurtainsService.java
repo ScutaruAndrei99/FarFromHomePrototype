@@ -1,11 +1,8 @@
 package service;
 
 import model.Curtains;
-import model.Light;
 import repository.CurtainsRepository;
 
-import java.sql.SQLException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CurtainsService {
@@ -13,11 +10,11 @@ public class CurtainsService {
     private static final Scanner scanner = new Scanner(System.in);
     CurtainsRepository crtr;
 
-    public CurtainsService (CurtainsRepository crtr) {
-        this.crtr = crtr;
+    public CurtainsService () {
+        crtr = new CurtainsRepository();
     }
 
-    public void setOpenCurtain(String room) throws SQLException {
+    public void setOpenCurtain(String room) {
         Curtains curtains = crtr.findById();
         System.out.println("Pentru a trage draperiile scrie 0/ pentru a le trage scrie 1");
         int switchCurtain = scanner.nextInt();
@@ -127,7 +124,7 @@ public class CurtainsService {
         }
         crtr.updateCurtains(curtains);
     }
-    public void LightStatus() throws SQLException {
+    public void LightStatus() {
         Curtains curtains = crtr.findById();
         if (curtains.isBathroom()){
             System.out.println("The drapes in the bathroom are set aside");
@@ -159,23 +156,6 @@ public class CurtainsService {
         } else {
             System.out.println("The curtains in the dressing are drawn");
         }
-    }
-
-    public static int readOptionCurtains(){
-        do {
-            try {
-                int optiune = scanner.nextInt();
-                if (optiune > 8 || optiune < 1) {
-                    System.out.println("Te rog sa alegi un numar din meniu");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch ( InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
-            }
-        } while (true);
     }
 
 }

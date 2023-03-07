@@ -1,21 +1,21 @@
 package service;
 
-import model.Channel;
 import model.TV;
 import repository.TVRepository;
 
 import java.sql.SQLException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
+
 
 public class TVService {
     TVRepository tvr;
-    private static final Scanner scanner = new Scanner(System.in);
-    public TVService (TVRepository tvr) {this.tvr=tvr;}
-    public void setPowerTV() throws SQLException {
+
+    public TVService () {
+        tvr = new TVRepository();
+    }
+    public void setPowerTV(int switchPower) {
         TV tv = tvr.findById(3);
         System.out.println("Pentru a porni televizorul scrie 1/ pentru al opri scrie 0");
-        int switchPower=scanner.nextInt();
         if (switchPower == 0) {
             tv.setPower(false);
             System.out.println("Televizorul se inchide");
@@ -28,7 +28,7 @@ public class TVService {
         tvr.updateTV(tv);
     }
 
-    public void changeChannel() throws SQLException {
+    public void changeChannel(int changeChannel) {
         TV tv=tvr.findById(3);
 
         if(!tv.isPower()){
@@ -36,17 +36,16 @@ public class TVService {
         } else {
             System.out.println("Te rog sa alegi postul pe care vrei sa te uiti");
             System.out.print("Postul pe care l-ai selectat este ");
-            int changeChannel = scanner.nextInt();
             if (changeChannel>82 || changeChannel <1){
                 System.out.println("Televizorul are doar 82 de canale");
             } else {
-                tv.setChannelPost(readOptionTV());
+                tv.setChannelPost(changeChannel);
                 tv.setChannelName(tvr.findByChannelPost(tv.getChannelPost()));
                 tvr.updateTV(tv);
             }
         }
     }
-    public void whatIsPower() throws SQLException {
+    public void whatIsPower() {
         TV tv =tvr.findById(3);
         if(tv.isPower()){
             System.out.println("Televizorul este pornit");
@@ -54,29 +53,12 @@ public class TVService {
             System.out.println("Televizorul este oprit");
         }
     }
-    public void whatChannelIs() throws SQLException {
+    public void whatChannelIs() {
         TV tv = tvr.findById(3);
         if(tv.isPower()) {
             System.out.println("Televizorul este deschis pe canalul " + tv.getChannelName());
         } else {
             System.out.println("Televizorul este momentan oprit");
         }
-    }
-
-    public static int readOptionTV() {
-        do {
-            try {
-                int optiune = scanner.nextInt();
-                if (optiune > 5 || optiune < 1) {
-                    System.out.println("Te rog sa alegi alt numar");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch ( InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
-            }
-        } while (true);
     }
 }

@@ -1,35 +1,29 @@
 package interfata;
 
-import repository.CurtainsRepository;
 import service.CurtainsService;
 import service.Service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 public class MeniuCurtains {
-
-    CurtainsRepository crtr;
+    private static final Scanner scanner = new Scanner(System.in);
     CurtainsService crts;
-    public MeniuCurtains() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
-        crtr = new CurtainsRepository(conn);
-        crts = new CurtainsService(crtr);
+    public MeniuCurtains() {
+        crts = new CurtainsService();
     }
 
-    public void TabCurtains() throws SQLException, ClassNotFoundException {
+    public void TabCurtains() {
         while (true) {
             tabelCurtains();
-            int selectedOptionCurtains = crts.readOptionCurtains();
+            int selectedOptionCurtains = readOptionCurtains();
             processSelectedOptionCurtains(selectedOptionCurtains);
         }
     }
 
 
-    private void processSelectedOptionCurtains(int selectedOptionCurtains) throws SQLException, ClassNotFoundException {
+    private void processSelectedOptionCurtains(int selectedOptionCurtains) {
             switch (selectedOptionCurtains) {
                 case 1:
                     crts.setOpenCurtain("Bathroom");
@@ -71,5 +65,20 @@ public class MeniuCurtains {
         System.out.println("7. What is the curtains status");
         System.out.println("8. Exit");
     }
-
+    public static int readOptionCurtains(){
+        do {
+            try {
+                int optiune = scanner.nextInt();
+                if (optiune > 8 || optiune < 1) {
+                    System.out.println("Te rog sa alegi un numar din meniu");
+                } else {
+                    scanner.nextLine();
+                    return optiune;
+                }
+            } catch ( InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
+            }
+        } while (true);
+    }
 }

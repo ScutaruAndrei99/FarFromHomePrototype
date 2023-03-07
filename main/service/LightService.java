@@ -3,15 +3,13 @@ package service;
 import model.Light;
 import repository.LightRepository;
 
-import java.sql.SQLException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LightService {
     LightRepository lr;
     private static final Scanner scanner = new Scanner(System.in);
-    public LightService (LightRepository lr) {this.lr=lr;}
-    public void setPowerLight(String room) throws SQLException {
+    public LightService () {lr = new LightRepository();}
+    public void setPowerLight(String room) {
         Light light = lr.findById();
         System.out.println("Pentru a porni lumina scrie 1/ pentru a o opri scrie 0");
         int switchPower = scanner.nextInt();
@@ -138,7 +136,7 @@ public class LightService {
         }
         lr.updateLight(light);
     }
-    public void LightStatus() throws SQLException {
+    public void LightStatus() {
         Light light = lr.findById();
         if (light.isBathroom()){
             System.out.println("Lumina in Bathroom este pornita");
@@ -175,22 +173,5 @@ public class LightService {
         } else {
             System.out.println("Lumina in boiler este oprita");
         }
-    }
-
-    public static int readOptionLight(){
-        do {
-            try {
-                int optiune = scanner.nextInt();
-                if (optiune > 9 || optiune < 1) {
-                    System.out.println("Te rog sa alegi un numar din meniu");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch ( InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
-            }
-        } while (true);
     }
 }

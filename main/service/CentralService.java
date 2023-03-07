@@ -3,16 +3,14 @@ package service;
 import model.Central;
 import repository.CentralRepository;
 
-import java.sql.SQLException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CentralService {
     CentralRepository cr;
     private static final Scanner scanner =new Scanner(System.in);
-    public CentralService (CentralRepository cr) { this.cr=cr; }
+    public CentralService () { cr = new CentralRepository(); }
 
-    public void changeTemperature() throws SQLException {
+    public void changeTemperature() {
         Central central = cr.findById(2);
         if(!central.isPower()){
             System.out.println("Te rog sa pornesti mai intai centrala");
@@ -29,7 +27,7 @@ public class CentralService {
             }
         }
     }
-    public void setPowerCentral() throws SQLException {
+    public void setPowerCentral()  {
         Central central = cr.findById(2);
         System.out.println("Pentru a porni centrala scrie 1/ pentru a o opri scrie 0");
         int switchPower=scanner.nextInt();
@@ -45,25 +43,9 @@ public class CentralService {
         cr.updateCentral(central);
     }
 
-    public void readTemperature() throws SQLException {
+    public void readTemperature() {
         Central central = cr.findById(2);
         System.out.println("Temperatura din centrala este de " + central.getTemperature() +" grade Celsius" );
-    }
-    public static int readOptionCentral() {
-        do {
-            try {
-                int optiune = scanner.nextInt();
-                if (optiune > 4 || optiune < 1) {
-                    System.out.println("Te rog sa alegi alt numar");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch ( InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
-            }
-        } while (true);
     }
 
 }

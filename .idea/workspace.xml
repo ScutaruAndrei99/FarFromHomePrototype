@@ -4,30 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edfb6f1-5a93-4809-bee0-0e564f9ac00b" name="Changes" comment="first comit">
-      <change afterPath="$PROJECT_DIR$/main/model/Elevator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/repository/ElevatorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/service/ElevatorService.java" afterDir="false" />
+    <list default="true" id="8edfb6f1-5a93-4809-bee0-0e564f9ac00b" name="Changes" comment="second commit">
+      <change afterPath="$PROJECT_DIR$/main/model/Gate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/repository/GateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/service/GateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/applicances/Elevator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/applicances/Gate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/interfata/MeniuCentral.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuCentral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/interfata/MeniuCurtains.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuCurtains.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/interfata/MeniuElevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuElevator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/interfata/MeniuEspressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuEspressor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/interfata/MeniuRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuRoomLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/interfata/MeniuRoomLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuRoomLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/interfata/MeniuTV.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuTV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/interfata/MeniuVacuum.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuVacuum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/CentralRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/CentralRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/CurtainsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/CurtainsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/ElevatorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/ElevatorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/repository/EspressorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/EspressorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/LightRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/LightRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/TVRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/TVRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/repository/VacuumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/repository/VacuumRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/service/CentralService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/CentralService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/service/CurtainsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/CurtainsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/service/ElevatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/ElevatorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/service/EspressorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/EspressorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/service/LightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/LightService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/service/MeniuElevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuElevator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/service/MeniuGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/interfata/MeniuGate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/service/TVService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/TVService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/applicances/Elevator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/service/VacuumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/service/VacuumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicances/Gate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/CentralRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/CentralRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repository/EspressorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/EspressorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/LightRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/LightRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/TVRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/TVRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/CentralService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/CentralService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/EspressorService$RemindTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/EspressorService$RemindTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/EspressorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/EspressorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/MeniuElevator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/MeniuGate.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/Service.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/TVService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/TVService.class" afterDir="false" />
     </list>
@@ -189,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677962283949</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="second commit">
+      <created>1678032619080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678032619080</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,7 +238,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first comit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first comit" />
+    <MESSAGE value="second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

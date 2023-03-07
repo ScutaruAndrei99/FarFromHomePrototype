@@ -3,16 +3,14 @@ package service;
 import model.Elevator;
 import repository.ElevatorRepository;
 
-import java.sql.SQLException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ElevatorService {
     private static final Scanner scanner=new Scanner(System.in);
     private ElevatorRepository elr;
 
-    public ElevatorService(ElevatorRepository elr)  { this.elr=elr;}
-    public void call() throws SQLException {
+    public ElevatorService()  { elr = new ElevatorRepository();}
+    public void call() {
         Elevator elevator = elr.findById();
         System.out.println("La ce etaj vrei sa vina liptul?");
         int switchetaj = scanner.nextInt();
@@ -29,7 +27,8 @@ public class ElevatorService {
             elr.update(elevator);
         }
     }
-    public void statusElevator() throws SQLException {
+    // TODO trebuie sa pun limita la etajele la care pot sa merg cu liftul
+    public void statusElevator() {
         Elevator elevator = elr.findById();
         System.out.println("Liftul se afla la etajul " + elevator.getFloor());
         if (elevator.isDoors()){
@@ -40,7 +39,7 @@ public class ElevatorService {
 
     }
 
-    void closeDoors() throws SQLException {
+    void closeDoors() {
         Elevator elevator = elr.findById();
         System.out.println("Usile se inchid");
         elevator.setDoors(true);
@@ -48,28 +47,13 @@ public class ElevatorService {
         elr.update(elevator);
     }
 
-    void openDoors() throws  SQLException{
+    void openDoors(){
         Elevator elevator = elr.findById();
         System.out.println("Usile se deschid");
         elevator.setDoors(false);
         elevator.setUsed(false);
         elr.update(elevator);
     }
-    public static int readOptionElevator() {
-        do {
-            try {
-                int optiune = scanner.nextInt();
-                if (optiune > 3 || optiune < 1) {
-                    System.out.println("Te rog sa alegi alt numar");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch (InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
-            }
-        } while (true);
-    }
+
 
 }

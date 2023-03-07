@@ -1,36 +1,32 @@
 package interfata;
 
-import repository.VacuumRepository;
 import service.Service;
 import service.VacuumService;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 public class MeniuVacuum {
+    private static final Scanner scanner= new Scanner(System.in);
     VacuumService vs;
-    VacuumRepository vr;
-    public MeniuVacuum() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
-        vr = new VacuumRepository(conn);
-        vs = new VacuumService(vr);
-    }
-    public void TabVacuum() throws SQLException, ClassNotFoundException {
+    public MeniuVacuum() {vs = new VacuumService();}
+
+    public void TabVacuum()  {
         while (true) {
             tabelVacuum();
-            int selectedOptionVacuum = vs.readOptionVacuum();
+            int selectedOptionVacuum = readOptionVacuum();
             processSelectedOptionVacuum(selectedOptionVacuum);
             return;
         }
     }
 
-    private void processSelectedOptionVacuum(int selectedOptionVacuum) throws SQLException, ClassNotFoundException {
+    private void processSelectedOptionVacuum(int selectedOptionVacuum) {
         switch (selectedOptionVacuum){
             case 1:
-                vs.setPowerVacuum();
+                System.out.println("Pentru a porni aspiratorul scrie 1/ pentru al opri scrie 0");
+                int switchPower=scanner.nextInt();
+                vs.setPowerVacuum(switchPower);
                 TabVacuum();
                 break;
             case 2:
@@ -50,5 +46,22 @@ public class MeniuVacuum {
         System.out.println("1. On/Off aspiratorul");
         System.out.println("2. Aspiratorul este pornit?");
         System.out.println("3. Inapoi");
+    }
+    public static int readOptionVacuum() {
+
+        do {
+            try {
+                int optiune = scanner.nextInt();
+                if (optiune > 3 || optiune < 1) {
+                    System.out.println("Te rog sa alegi alt numar");
+                } else {
+                    scanner.nextLine();
+                    return optiune;
+                }
+            } catch ( InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
+            }
+        } while (true);
     }
 }

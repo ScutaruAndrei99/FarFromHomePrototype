@@ -1,33 +1,27 @@
 package interfata;
 
-import repository.EspressorRepository;
 import service.EspressorService;
 import service.Service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 public class MeniuEspressor {
-
-    EspressorRepository er;
+    private static final Scanner scanner = new Scanner(System.in);
     EspressorService sr;
-    public MeniuEspressor() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
-        er = new EspressorRepository(conn);
-        sr = new EspressorService(er);
+    public MeniuEspressor() {
+        sr = new EspressorService();
     }
 
-    public void TabEspressor() throws SQLException, ClassNotFoundException {
+    public void TabEspressor() {
         while (true) {
             tabelEspressor();
-            int selectedOptionEspressor = sr.readOptionEspressor();
+            int selectedOptionEspressor = readOptionEspressor();
             processSelectedOptionEspressor(selectedOptionEspressor);
         }
     }
-    public void processSelectedOptionEspressor(int selectedOptionEspressor) throws SQLException, ClassNotFoundException {
+    public void processSelectedOptionEspressor(int selectedOptionEspressor) {
 
         switch (selectedOptionEspressor){
             case 1:
@@ -50,11 +44,11 @@ public class MeniuEspressor {
                 break;
             case 7:
                 System.out.println("Listare:");
-                System.out.println(er.findAll());
+                sr.findALL();
                 break;
             case 8:
                 System.out.println("Se face full-ul");
-                er.updateRefill();
+                sr.refill();
                 break;
             case 9:
                 Service menu=new Service();
@@ -78,5 +72,21 @@ public class MeniuEspressor {
         System.out.println("7. Ce resurse mai am in aparat?");
         System.out.println("8. Refill");
         System.out.println("9. Inapoi");
+    }
+    public static int readOptionEspressor() {
+        do{
+            try{
+                int optiune = scanner.nextInt();
+                if(optiune>9 || optiune<1){
+                    System.out.println("Te rog sa alegi alt numar");
+                } else {
+                    scanner.nextLine();
+                    return optiune;
+                }
+            } catch (InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Optiune inexistenta, incearca din nou");
+            }
+        } while(true);
     }
 }

@@ -3,22 +3,18 @@ package service;
 import model.Espressor;
 import repository.EspressorRepository;
 
-import java.sql.SQLException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class EspressorService {
     private EspressorRepository er;
     private volatile boolean isPreparing = false;
-    private static final Scanner scanner =new Scanner(System.in);
 
-    public EspressorService(EspressorRepository er) {
-        this.er=er;
+    public EspressorService() {
+        er = new EspressorRepository();
     }
 
-    public boolean prepareShortEspresso() throws SQLException {
+    public boolean prepareShortEspresso() {
         boolean success = false;
         Espressor espressor = er.findById(1);
 
@@ -37,7 +33,7 @@ public class EspressorService {
         return success;
     }
 
-    public boolean prepareDubleEspresso() throws SQLException {
+    public boolean prepareDubleEspresso() {
         boolean success = false;
         Espressor espressor = er.findById(1);
         if(espressor.getShotCoffe()>1 && !isPreparing){
@@ -55,7 +51,7 @@ public class EspressorService {
         return success;
     }
 
-    public boolean prepareSmallLatte() throws SQLException {
+    public boolean prepareSmallLatte() {
         boolean success = false;
         Espressor espressor = er.findById(1);
         if(espressor.getShotCoffe()>0 && espressor.getShotMilk()>0 && !isPreparing){
@@ -78,7 +74,7 @@ public class EspressorService {
         return success;
     }
 
-    public boolean prepareBigLatte() throws SQLException {
+    public boolean prepareBigLatte() {
         boolean success = false;
         Espressor espressor = er.findById(1);
         if(espressor.getShotCoffe()>1 && espressor.getShotMilk()>1 && !isPreparing){
@@ -101,7 +97,7 @@ public class EspressorService {
         return success;
     }
 
-    public boolean prepareShortCoffe() throws SQLException {
+    public boolean prepareShortCoffe() {
         boolean success = false;
         Espressor espressor = er.findById(1);
         if(espressor.getShotCoffe()>0 && espressor.getShotWater()>0 && !isPreparing){
@@ -124,7 +120,7 @@ public class EspressorService {
         return success;
     }
 
-    public boolean prepareLongCoffe() throws SQLException {
+    public boolean prepareLongCoffe() {
         boolean success = false;
         Espressor espressor = er.findById(1);
         if(espressor.getShotCoffe()>1 && espressor.getShotWater()>1 && !isPreparing){
@@ -146,27 +142,16 @@ public class EspressorService {
         }
         return success;
     }
+    public void findALL() {
+        System.out.println(er.findAll());
+    }
+    public void refill() {
+        er.updateRefill();
+    }
 
     public void timeEspressor(int seconds) {
         Timer timer = new Timer();
         timer.schedule(new RemindTask(), seconds * 1000L);
-    }
-
-    public static int readOptionEspressor() {
-        do{
-            try{
-                int optiune = scanner.nextInt();
-                if(optiune>9 || optiune<1){
-                    System.out.println("Te rog sa alegi alt numar");
-                } else {
-                    scanner.nextLine();
-                    return optiune;
-                }
-            } catch (InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Optiune inexistenta, incearca din nou");
-            }
-        } while(true);
     }
 
     class RemindTask extends TimerTask {

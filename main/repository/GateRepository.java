@@ -1,12 +1,12 @@
 package repository;
 
-import model.Vacuum;
+import model.Gate;
 
 import java.sql.*;
 
-public class VacuumRepository {
+public class GateRepository {
     private Connection connection;
-    public VacuumRepository() {
+    public GateRepository(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava", "root", "1234567");
@@ -17,34 +17,35 @@ public class VacuumRepository {
         }
     }
 
-    public Vacuum findById() {
+    public Gate findByID() {
+        ResultSet rs;
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM vacuum WHERE idVacuum=6");
-            ResultSet rs = statement.executeQuery();
-
-            Vacuum vacuum = null;
-            if (rs.next()) {
-                vacuum = new Vacuum(
-                        rs.getInt("idVacuum"),
-                        rs.getBoolean("Power")
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM gate WHERE idGate = 8");
+            rs = statement.executeQuery();
+            Gate gate = null;
+            if(rs.next()){
+                gate = new Gate(
+                        rs.getInt("idGate"),
+                        rs.getBoolean("Open"),
+                        rs.getBoolean("Status")
                 );
             }
-            return vacuum;
+            return gate;
         } catch (SQLException e) {
-            System.out.println("Nu s-a putut realiza conexiunea cu repository-ul");
             throw new RuntimeException(e);
         }
     }
-
-    public boolean updateVacuum(Vacuum vacuum) {
+    public boolean update(Gate gate){
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE vacuum SET Power=? WHERE idVacuum=6");
-            statement.setBoolean(1, vacuum.isPowerVacuum());
+            PreparedStatement statement = connection.prepareStatement("UPDATE gate SET Open=?,Status=? WHERE idGate=8");
+            statement.setBoolean(1,gate.isOpen());
+            statement.setBoolean(2,gate.isStatus());
             int affectedRows = statement.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
             System.out.println("Nu s-a putut realiza conexiunea cu repository-ul");
             throw new RuntimeException(e);
         }
+
     }
 }

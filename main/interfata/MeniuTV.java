@@ -1,47 +1,38 @@
 package interfata;
 
-import model.TV;
-import repository.TVRepository;
 import service.Service;
 import service.TVService;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MeniuTV {
     private static final Scanner scanner=new Scanner(System.in);
-
-//    public static TV tv=new TV(3, tv.getChannelPost(),tv.getChannelName(),tv.isPower());
-    TVRepository tvr;
     TVService tvs;
 
-    public MeniuTV() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
-        tvr = new TVRepository(conn);
-        tvs = new TVService(tvr);
-    }
-    public void TabTV() throws SQLException, ClassNotFoundException {
+    public MeniuTV() {tvs = new TVService();}
+
+    public void TabTV() {
         while (true) {
             tabelTV();
-            int selectedOptionTV = tvs.readOptionTV();
+            int selectedOptionTV = readOptionTV();
             processSelectedOptionTV(selectedOptionTV);
         }
     }
 
 
-    private void processSelectedOptionTV(int selectedOptionTV) throws SQLException, ClassNotFoundException {
+    private void processSelectedOptionTV(int selectedOptionTV) {
         switch (selectedOptionTV){
             case 1:
-                tvs.setPowerTV();
+                int switchPower=scanner.nextInt();
+                tvs.setPowerTV(switchPower);
                 break;
             case 2:
                 tvs.whatIsPower();
                 break;
             case 3:
-                tvs.changeChannel();
+                int changeChannel= scanner.nextInt();
+                tvs.changeChannel(changeChannel);
                 break;
             case 4:
                 tvs.whatChannelIs();
@@ -63,5 +54,20 @@ public class MeniuTV {
         System.out.println("4. Pe ce Canal este deschis televizorul?");
         System.out.println("5. Inapoi");
     }
-
+    public static int readOptionTV() {
+        do {
+            try {
+                int optiune = scanner.nextInt();
+                if (optiune > 5 || optiune < 1) {
+                    System.out.println("Te rog sa alegi alt numar");
+                } else {
+                    scanner.nextLine();
+                    return optiune;
+                }
+            } catch ( InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
+            }
+        } while (true);
+    }
 }

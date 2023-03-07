@@ -1,29 +1,23 @@
 package interfata;
 
-import repository.CentralRepository;
 import service.CentralService;
 import service.Service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class MeniuCentral {
-
-    CentralRepository cr;
+    private static final Scanner scanner =new Scanner(System.in);
     CentralService cs;
 
-    public MeniuCentral() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
-        cr = new CentralRepository(conn);
-        cs = new CentralService(cr);
+    public MeniuCentral() {
+        cs = new CentralService();
     }
 
-    public void TabCentral() throws SQLException, ClassNotFoundException {
+    public void TabCentral() {
         while (true) {
             tabelCentral();
-            int selectedOptionCentral = cs.readOptionCentral();
+            int selectedOptionCentral = readOptionCentral();
             processSelectedOptionCentral(selectedOptionCentral);
             break;
         }
@@ -39,7 +33,7 @@ public class MeniuCentral {
         System.out.println("4. Inapoi");
     }
 
-    private void processSelectedOptionCentral(int selectedOptionCentral) throws SQLException, ClassNotFoundException {
+    private void processSelectedOptionCentral(int selectedOptionCentral) {
 
         switch (selectedOptionCentral) {
             case 1:
@@ -61,6 +55,21 @@ public class MeniuCentral {
 
         }
     }
-
+    public static int readOptionCentral() {
+        do {
+            try {
+                int optiune = scanner.nextInt();
+                if (optiune > 4 || optiune < 1) {
+                    System.out.println("Te rog sa alegi alt numar");
+                } else {
+                    scanner.nextLine();
+                    return optiune;
+                }
+            } catch ( InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
+            }
+        } while (true);
+    }
 
 }

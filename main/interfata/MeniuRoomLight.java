@@ -1,34 +1,29 @@
 package interfata;
 
-import repository.LightRepository;
 import service.LightService;
 import service.Service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class MeniuRoomLight {
-    LightRepository lr;
+    private static final Scanner scanner = new Scanner(System.in);
     LightService ls;
 
-    public MeniuRoomLight() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectjava","root","1234567");
-        lr = new LightRepository(conn);
-        ls = new LightService(lr);
+    public MeniuRoomLight() {
+        ls = new LightService();
     }
 
-    public void TabRoomLight() throws SQLException, ClassNotFoundException {
+    public void TabRoomLight() {
         while (true){
             tabelRoomLight();
-            int selectedOptionRoom = ls.readOptionLight();
+            int selectedOptionRoom = readOptionLight();
             processSelectedOptionRoom(selectedOptionRoom);
         }
     }
 
 
-    private void processSelectedOptionRoom(int selectedOptionLight) throws SQLException, ClassNotFoundException {
+    private void processSelectedOptionRoom(int selectedOptionLight) {
         switch (selectedOptionLight) {
             case 1:
                 ls.setPowerLight("Bathroom");
@@ -74,6 +69,21 @@ public class MeniuRoomLight {
         System.out.println("8. Situatia becurilor");
         System.out.println("9. Back");
     }
-
+    public static int readOptionLight(){
+        do {
+            try {
+                int optiune = scanner.nextInt();
+                if (optiune > 9 || optiune < 1) {
+                    System.out.println("Te rog sa alegi un numar din meniu");
+                } else {
+                    scanner.nextLine();
+                    return optiune;
+                }
+            } catch ( InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Optiune neexistenta, te rog sa scrii doar numarul");
+            }
+        } while (true);
+    }
 }
 

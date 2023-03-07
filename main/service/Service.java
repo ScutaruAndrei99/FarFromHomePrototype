@@ -2,15 +2,14 @@ package service;
 
 import interfata.*;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Service {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) {
         tabStart();
 
     }
-    public static void tabStart () throws SQLException, ClassNotFoundException {
+    public static void tabStart ()  {
         Scanner scanner = new Scanner(System.in);
             int selectedOption;
             do {
